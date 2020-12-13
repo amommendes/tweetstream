@@ -1,5 +1,5 @@
 from tweetstream.utils.logger import Logger
-from tweetstream.sinks.socket_sink import SocketSink
+from tweetstream.sinks.kafka_sink import KafkaSink
 from tweetstream.consumers.twitter_listener import TwitterStreamListener
 from tweepy import Stream
 
@@ -13,7 +13,7 @@ class TwitterConsumer():
 
     def start(self):
         logger.info("Starting Consumer")
-        sink = SocketSink().get_sink()
-        logger.info("Socket sink defiened")
+        sink = KafkaSink().get_sink()
+        logger.info("Sink defined")
         stream = Stream(self.client.auth, TwitterStreamListener(sink))
         stream.filter(track=self.hashtags)

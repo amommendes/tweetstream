@@ -17,7 +17,7 @@ class TwitterStreamListener(StreamListener):
         try:
             raw_data = json.loads(raw_data)
             logger.info(f"Twitter Listener sending data to sink")
-            self.sink.send(raw_data['text'].encode('utf-8'))
+            self.sink.send("twitter", raw_data)
             return True
 
         except BaseException as error:

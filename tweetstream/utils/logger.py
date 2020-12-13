@@ -94,7 +94,7 @@ class Logger(object):
         self._raw_log(logging.error, message, exc_info)
 
     @staticmethod
-    def basicConfig(level=DEBUG):
+    def basicConfig(level=INFO):
         """
         Apply a basic logging configuration which outputs the log to the
         console (stderr). Optionally, the minimum log level can be set, one
