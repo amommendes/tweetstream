@@ -1,0 +1,5 @@
+[flake8]
+ignore = E501, E741, F811, F841, C901
+max-line-length = 120
+exclude = .git,__pycache__,old,build,dist,.venv,.pytest_cache,.ipynb_checkpoints,notebookis,docker,libs,docs
+max-complexity = 10

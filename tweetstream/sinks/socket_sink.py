@@ -10,7 +10,8 @@ class SocketSink:
     """
     Sinks tweets into local socket server
     """
-    def __init__(self, host_bind='localhost', host_port=3333):
+
+    def __init__(self, host_bind="localhost", host_port=3333):
         self.host = host_bind
         self.port = host_port
         self.socket_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -27,4 +28,3 @@ class SocketSink:
         sink = self._setup_server()
         logger.info("Accepting socket messages")
         return sink
-

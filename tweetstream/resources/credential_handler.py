@@ -5,6 +5,7 @@ class CredentialHandler:
     """
     Simple handler to read credential files
     """
+
     def __init__(self, path="tweetstream/resources/api.json"):
         self.path = path
 

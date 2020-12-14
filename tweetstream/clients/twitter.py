@@ -10,6 +10,7 @@ class TwitterClient:
     """
     Constructs auth object used in the tweepy API/Streaming objects
     """
+
     def __init__(self):
         self.auth = self.get_auth()
 
@@ -19,9 +20,10 @@ class TwitterClient:
         credentials = handler.get_credentials()
         auth = OAuthHandler(
             consumer_key=credentials.get("API_KEY"),
-            consumer_secret=credentials.get("API_SECRET_KEY"))
+            consumer_secret=credentials.get("API_SECRET_KEY"),
+        )
         auth.set_access_token(
             key=credentials.get("ACCESS_TOKEN"),
-            secret=credentials.get("ACCESS_TOKEN_SECRET")
+            secret=credentials.get("ACCESS_TOKEN_SECRET"),
         )
         return auth

@@ -51,20 +51,20 @@ class Logger(object):
     # Formats the message as needed and calls the correct logging method
     # to actually handle it
     def _raw_log(self, logfn, message, exc_info):
-        cname = ''
-        loc = ''
-        fn = ''
+        cname = ""
+        loc = ""
+        fn = ""
         tb = traceback.extract_stack()
         if len(tb) > 2:
             if self.show_source_location:
-                loc = '(%s:%d):' % (os.path.basename(tb[-3][0]), tb[-3][1])
+                loc = "(%s:%d):" % (os.path.basename(tb[-3][0]), tb[-3][1])
             fn = tb[-3][2]
-            if fn != '<module>':
+            if fn != "<module>":
                 if self.__class__.__name__ != Logger.__name__:
-                    fn = self.__class__.__name__ + '.' + fn
-                fn += '()'
+                    fn = self.__class__.__name__ + "." + fn
+                fn += "()"
 
-        logfn(loc + cname + fn + ': ' + message, exc_info=exc_info)
+        logfn(loc + cname + fn + ": " + message, exc_info=exc_info)
 
     def info(self, message, exc_info=False):
         """
@@ -102,13 +102,17 @@ class Logger(object):
         of DEBUG, WARNING, ERROR (or any of the levels from the logging
         module). If not set, DEBUG log level is used as minimum.
         """
-        logging.basicConfig(level=level,
-            format='%(asctime)s %(levelname)s %(message)s',
-            datefmt='%Y-%m-%d %H:%M:%S')
+        logging.basicConfig(
+            level=level,
+            format="%(asctime)s %(levelname)s %(message)s",
+            datefmt="%Y-%m-%d %H:%M:%S",
+        )
+
 
 logger = Logger()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Run the code from examples
     import doctest
+
     doctest.testmod()

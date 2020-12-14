@@ -6,11 +6,13 @@ from tweepy import Stream
 logger = Logger()
 logger.basicConfig()
 
+
 class TwitterConsumer:
     """
     Consumes tweets and sink them to Kafka Sink
     """
-    def __init__(self, client, hashtags=['#COVID']):
+
+    def __init__(self, client, hashtags=["#COVID"]):
         self.client = client
         self.hashtags = hashtags
 
