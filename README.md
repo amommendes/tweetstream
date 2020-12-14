@@ -13,7 +13,7 @@ Tweetstream is segregated in distinct layers which are coupled in a `docker-comp
 
 ### Twitter Streaming
 Using `tweepy`, ingestion layer streams tweets, filtering them by desired hashtags. These tweets are sent to Kafka using the `KafkaSink`. 
-Then, it consumes the tweets from `twitter` topic using Spark Streaming and write them as `parquet` files to HDFS. 
+Then, it consumes the tweets from `twitter` topic using Spark Streaming and writes them as `parquet` files to HDFS. 
 This simple diagram illustrates the flow:
 
 ![Code Arch](docs/img/code_arch.png)
