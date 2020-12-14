@@ -6,7 +6,10 @@ from tweepy import Stream
 logger = Logger()
 logger.basicConfig()
 
-class TwitterConsumer():
+class TwitterConsumer:
+    """
+    Consumes tweets and sink them to Kafka Sink
+    """
     def __init__(self, client, hashtags=['#COVID']):
         self.client = client
         self.hashtags = hashtags
@@ -14,6 +17,6 @@ class TwitterConsumer():
     def start(self):
         logger.info("Starting Consumer")
         sink = KafkaSink().get_sink()
-        logger.info("Sink defined")
+        logger.info("Got Sink! Beginning Streaming")
         stream = Stream(self.client.auth, TwitterStreamListener(sink))
         stream.filter(track=self.hashtags)

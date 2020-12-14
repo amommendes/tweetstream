@@ -7,6 +7,7 @@ from logging import DEBUG, WARNING, ERROR, INFO
 
 class Logger(object):
     """
+    Source: https://github.com/senko/python-logger
     Logger mixin/base class adding verbose logging to subclasses.
     Subclasses get info(), debug(), warning() and error() methods which, alongside
     the information given, also show location of the message (file, line and

@@ -6,7 +6,10 @@ logger = Logger()
 logger.basicConfig()
 
 
-class TwitterClient():
+class TwitterClient:
+    """
+    Constructs auth object used in the tweepy API/Streaming objects
+    """
     def __init__(self):
         self.auth = self.get_auth()
 

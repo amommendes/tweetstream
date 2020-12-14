@@ -5,20 +5,18 @@ import findspark
 
 logger = Logger()
 logger.basicConfig()
-pyspark_log = logging.getLogger('pyspark')
-pyspark_log.setLevel(logging.ERROR)
 
 class SparkClient:
-    def __init__(self, session_params=None):
-        self.session = None
-        self.session_params = session_params
+    def __init__(self, session_config=None):
+        self.spark_session = None
+        self.session_config = session_config
 
     def get_session(self):
         findspark.init()
-        if not self.session:
+        if not self.spark_session:
             session_builder = SparkSession.builder
-            if self.session_params:
-                for param, val in self.session_params.items():
+            if self.session_config:
+                for param, val in self.session_config.items():
                     session_builder.config(param, val)
-            self.session = session_builder.getOrCreate()
-        return self.session
+            self.spark_session = session_builder.getOrCreate()
+        return self.spark_session

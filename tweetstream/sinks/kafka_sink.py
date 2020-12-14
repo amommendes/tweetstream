@@ -5,7 +5,10 @@ logger = Logger()
 logger.basicConfig()
 
 
-class KafkaSink():
+class KafkaSink:
+    """
+    Sinks tweets into topic using Kafka producer
+    """
     def __init__(self, bootstrap_servers='localhost:9092'):
         self.bootstrap_servers = bootstrap_servers
 
@@ -14,7 +17,7 @@ class KafkaSink():
         producer = KafkaProducer(
             bootstrap_servers=self.bootstrap_servers,
             api_version=(0, 10, 0),
-            value_serializer=lambda message: json.dumps({"twitter": message}).encode('utf-8')
+            value_serializer=lambda message: json.dumps(message).encode('utf-8')
         )
         return producer
 

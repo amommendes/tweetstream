@@ -8,6 +8,7 @@ logger.basicConfig()
 class TwitterStreamListener(StreamListener):
     """
     Twitter Listener for streaming
+    See: http://docs.tweepy.org/en/latest/streaming_how_to.html#step-1-creating-a-streamlistener
     """
 
     def __init__(self, sink):

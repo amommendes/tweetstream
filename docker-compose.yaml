@@ -1,7 +1,6 @@
 version: "3"
 
 services:
-
   spark-master:
     image: bde2020/spark-master:3.0.1-hadoop3.2
     container_name: spark-master
@@ -22,6 +21,7 @@ services:
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
       - "constraint:node==spark-worker1"
+
   spark-worker-2:
     image: bde2020/spark-worker:3.0.1-hadoop3.2
     container_name: spark-worker-2
@@ -53,3 +53,37 @@ services:
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
     depends_on:
       - zookeeper
+
+  postgres:
+      image: postgres:9.6
+      environment:
+          - POSTGRES_USER=airflow
+          - POSTGRES_PASSWORD=airflow
+          - POSTGRES_DB=airflow
+      logging:
+          options:
+              max-size: 10m
+              max-file: "3"
+
+  webserver:
+      image: puckel/docker-airflow:1.10.9
+      restart: always
+      depends_on:
+          - postgres
+      environment:
+          - LOAD_EX=n
+          - EXECUTOR=Local
+      logging:
+          options:
+              max-size: 10m
+              max-file: "3"
+      volumes:
+          - ./airflow/dags:/usr/local/airflow/dags
+      ports:
+          - "8080:8080"
+      command: webserver
+      healthcheck:
+          test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
+          interval: 30s
+          timeout: 30s
+          retries: 3

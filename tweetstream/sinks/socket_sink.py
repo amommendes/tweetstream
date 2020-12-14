@@ -6,7 +6,10 @@ logger = Logger()
 logger.basicConfig()
 
 
-class SocketSink():
+class SocketSink:
+    """
+    Sinks tweets into local socket server
+    """
     def __init__(self, host_bind='localhost', host_port=3333):
         self.host = host_bind
         self.port = host_port
