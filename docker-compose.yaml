@@ -22,17 +22,6 @@ services:
       - "SPARK_MASTER=spark://spark-master:7077"
       - "constraint:node==spark-worker1"
 
-  spark-worker-2:
-    image: bde2020/spark-worker:3.0.1-hadoop3.2
-    container_name: spark-worker-2
-    depends_on:
-      - spark-master
-    ports:
-      - "8081:8081"
-    environment:
-      - "SPARK_MASTER=spark://spark-master:7077"
-      - "constraint:node==spark-worker2"
-
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     ports:

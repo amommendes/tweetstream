@@ -18,7 +18,8 @@ class TwitterStreamingConsumer:
 
     def start(self):
         """
-        Reads streaming data from Kafka source and starts writing process
+        Reads streaming data from Kafka source and starts writing process.
+        The process is triggered once, meaning that all available data will be processed and job finishes
         """
         logger.info("Creating read stream")
         tweets_df = self.spark \
@@ -43,7 +44,7 @@ class TwitterStreamingConsumer:
             format(self.format). \
             option("path", self.output_path). \
             option("checkpointLocation", self.checkpoint). \
-            trigger(processingTime='15 seconds'). \
+            trigger(once=True). \
             start()
 
         logger.info(f"Writing status {writer.status}")
