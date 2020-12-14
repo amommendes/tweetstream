@@ -6,7 +6,7 @@ A simple stack for Twitter Analytics.
 Tweetstream is segregated in distinct layers which are coupled in a `docker-compose` deployment.
 
 - **Ingestion Layer:** all logic and infrastructure for collecting and writing data from twitter.
-- **Store Layer:** we store data as parquet files in HDFS
+- **Storage Layer:** we store data as parquet files in HDFS
 - **Analytics Layer:** the analytics layer provide tools for querying and analyzing ingested data, using standard SQL.
 
 ![Code Arch](docs/img/arch.png)
