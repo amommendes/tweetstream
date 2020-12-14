@@ -12,6 +12,7 @@ RUN update-ca-certificates -f \
     libopenblas-base \
   && apt-get clean
 
+RUN mkdir -p /usr/share/man/man1
 RUN apt-get install -y default-jre
 
 # SPARK

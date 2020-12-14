@@ -16,7 +16,7 @@ class TwitterStreamingConsumer:
         output_path="file:///tmp/consumer",
         checkpoint="/tmp/checkpoint",
         format="parquet",
-        bootstrap_servers=["localhost:9092"],
+        bootstrap_servers="localhost:9092",
     ):
         self.spark = spark
         self.output_path = output_path
@@ -39,11 +39,10 @@ class TwitterStreamingConsumer:
             .load()
         )
 
-        logger.info("Converting value")
+        logger.info("Converting binary fields to string")
         tweets_df_cast = tweets_df.selectExpr(
             "CAST(value AS STRING) as value",
-            " CAST(key AS STRING) as key",
-            "topic",
+            "CAST(key AS STRING) as key",
             "`timestamp`",
         )
         logger.info("Writing stream")
