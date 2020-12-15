@@ -6,6 +6,7 @@ import findspark
 logger = Logger()
 logger.basicConfig()
 
+
 class SparkClient:
     def __init__(self, session_config=None):
         self.spark_session = None

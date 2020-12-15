@@ -5,6 +5,7 @@ from tweetstream.utils.logger import Logger
 logger = Logger()
 logger.basicConfig()
 
+
 class TwitterStreamListener(StreamListener):
     """
     Twitter Listener for streaming

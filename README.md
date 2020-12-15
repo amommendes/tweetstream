@@ -3,18 +3,18 @@
 A simple stack for Twitter Analytics.
 
 ## Architecture (To-Be)
-Tweetstream is segregated in distinct service layers which is coupled by `docker-compose`.
+Tweetstream is segregated in distinct layers which are coupled in a `docker-compose` deployment.
 
 - **Ingestion Layer:** all logic and infrastructure for collecting and writing data from twitter.
-- **Store Layer:** we store data as parquet files in HDFS
-- **Analytics Layer:** the analytics layer provide tools for querying and analyzing ingested data, using standard SQL.
+- **Storage Layer:** we store data as parquet files in HDFS
+- **Analytics Layer:** the analytics layer provides tools for querying and analyzing ingested data, using standard SQL.
 
 ![Code Arch](docs/img/arch.png)
 
 ### Twitter Streaming
-Using `tweepy` we stream tweets filtering them by desired hashtags. These tweets are sent to Kafka using our `KafkaSink`. 
-Then it consumes the tweets from `twitter` topic using Spark Streaming and write them as `parquet` files to HDFS. 
-This simple diagram illustrates this flow:
+Using `tweepy`, ingestion layer streams tweets, filtering them by desired hashtags. These tweets are sent to Kafka using the `KafkaSink`. 
+Then, it consumes the tweets from `twitter` topic using Spark Streaming and writes them as `parquet` files to HDFS. 
+This simple diagram illustrates the flow:
 
 ![Code Arch](docs/img/code_arch.png)
 
