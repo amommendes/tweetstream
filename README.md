@@ -19,7 +19,7 @@ This simple diagram illustrates the flow:
 ![Code Arch](docs/img/code_arch.png)
 
 ### Usage
-All code and flow can deployed locally using docker-compose.
+All code and flow can deployed locally using `docker-compose`.
 
 ### ToDos
 - [ ] Write many more tests
