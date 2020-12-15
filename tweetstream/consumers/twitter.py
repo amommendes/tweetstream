@@ -1,16 +1,18 @@
 from tweetstream.utils.logger import Logger
 from tweetstream.sinks.kafka_sink import KafkaSink
-from tweetstream.consumers.twitter_listener import TwitterStreamListener
+from tweetstream.listeners.twitter_listener import TwitterStreamListener
 from tweepy import Stream
 
 logger = Logger()
 logger.basicConfig()
 
+
 class TwitterConsumer:
     """
     Consumes tweets and sink them to Kafka Sink
     """
-    def __init__(self, client, hashtags=['#COVID']):
+
+    def __init__(self, client, hashtags=["#COVID"]):
         self.client = client
         self.hashtags = hashtags
 

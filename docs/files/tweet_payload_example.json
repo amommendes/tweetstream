@@ -1,0 +1,121 @@
+{
+    "created_at": "Mon Dec 14 00:30:25 +0000 2020",
+    "id": 1338280144469815296,
+    "id_str": "1338280144469815296",
+    "text": "u8abfu5e03u5e02u306eu30dbu30fcu30e0u30dau30fcu30b8u306bnCOVID-19u306eu4e88u9632u65b9u6cd5u3068u3057u3066nu7981u7159u30fbu53d7u52d5u55abu7159u9632u6b62u304cu660eu8a18u3055u308cu307eu3057u305fnhttps://t.co/lHjXTxSxiunu884cu653fu304cu53d7u52d5u55abu7159u9632u6b62u307eu3067u8e0fu307fu8fbcu3093u3067u3044u308bu306eu306fu73cdu3057u304fu3001u3055u3059u304cu8abfu5e03u5e02u3068u601du3044u307eu3059u3002n#COVID-19 #u7981u7159 #u53d7u52d5u55abu7159 #u8abfu5e03 #u8a87u308cu308bu307eu3061",
+    "source": "<a href=\"http: //twittbot.net/\" rel=\"nofollow\">twittbot.net</a>",
+    "truncated": false,
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+        "id": 978134270999855104,
+        "id_str": "978134270999855104",
+        "name": "u3061u3087u3046u3075u30bfu30d0u30b3u5bfeu7b56u30cdu30c3u30c8u30efu30fcu30afu516cu5f0f",
+        "screen_name": "chofu_t_network",
+        "location": "u6771u4eacu90fdu8abfu5e03u5e02",
+        "url": "https://ctn.tokyo/",
+        "description": "u3061u3087u3046u3075u30bfu30d0u30b3u5bfeu7b56u30cdu30c3u30c8u30efu30fcu30afu306fu3001u6771u4eacu90fdu8abfu5e03u5e02u306bu304au3044u3066u533bu7642u8077u3001u5e02u6c11u3001u884cu653fu7b49u304cu9023u643au3057u3066u30bfu30d0u30b3u5bfeu7b56u306eu63a8u9032u3092u884cu3044u3001u3082u3063u3066u516cu8846u885bu751fu306eu5411u4e0au306bu5bc4u4e0eu3059u308bu305fu3081u306eu56e3u4f53u3067u3059u3002u533bu5e2bu3001u6b6fu79d1u533bu5e2bu7b49u306eu533bu7642u8077u304bu3089u3001u5f01u8b77u58ebu3001u4f1au793eu54e1u307eu3067u5e45u5e83u3044u8077u7a2eu306eu4ebau304cu4f1au54e1u3068u306au3063u3066u304au308au307eu3059u3002 u307bu307cu81eau52d5u3067u3064u3076u3084u3044u3066u3044u307eu3059u3002u304au554fu3044u5408u308fu305bu7b49u306fu30dbu30fcu30e0u30dau30fcu30b8u304bu3089u304au9858u3044u3057u307eu3059u3002",
+        "translator_type": "none",
+        "protected": false,
+        "verified": false,
+        "followers_count": 253,
+        "friends_count": 35,
+        "listed_count": 5,
+        "favourites_count": 156,
+        "statuses_count": 13657,
+        "created_at": "Mon Mar 26 04:59:17 +0000 2018",
+        "utc_offset": null,
+        "time_zone": null,
+        "geo_enabled": false,
+        "lang": null,
+        "contributors_enabled": false,
+        "is_translator": false,
+        "profile_background_color": "000000",
+        "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+        "profile_background_tile": false,
+        "profile_link_color": "0000FF",
+        "profile_sidebar_border_color": "000000",
+        "profile_sidebar_fill_color": "000000",
+        "profile_text_color": "000000",
+        "profile_use_background_image": false,
+        "profile_image_url": "http://pbs.twimg.com/profile_images/978585216980631552/N3BVXsRx_normal.jpg",
+        "profile_image_url_https": "https://pbs.twimg.com/profile_images/978585216980631552/N3BVXsRx_normal.jpg",
+        "profile_banner_url": "https://pbs.twimg.com/profile_banners/978134270999855104/1523063604",
+        "default_profile": false,
+        "default_profile_image": false,
+        "following": null,
+        "follow_request_sent": null,
+        "notifications": null
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "quote_count": 0,
+    "reply_count": 0,
+    "retweet_count": 0,
+    "favorite_count": 0,
+    "entities": {
+        "hashtags": [
+            {
+                "text": "COVID",
+                "indices": [
+                    108,
+                    114
+                ]
+            },
+            {
+                "text": "u7981u7159",
+                "indices": [
+                    118,
+                    121
+                ]
+            },
+            {
+                "text": "u53d7u52d5u55abu7159",
+                "indices": [
+                    122,
+                    127
+                ]
+            },
+            {
+                "text": "u8abfu5e03",
+                "indices": [
+                    128,
+                    131
+                ]
+            },
+            {
+                "text": "u8a87u308cu308bu307eu3061",
+                "indices": [
+                    132,
+                    138
+                ]
+            }
+        ],
+        "urls": [
+            {
+                "url": "https://t.co/lHjXTxSxiu",
+                "expanded_url": "https://ctn.tokyo/?p=896",
+                "display_url": "ctn.tokyo/?p=896",
+                "indices": [
+                    47,
+                    70
+                ]
+            }
+        ],
+        "user_mentions": [],
+        "symbols": []
+    },
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "filter_level": "low",
+    "lang": "ja",
+    "timestamp_ms": "1607905825141"
+}

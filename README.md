@@ -27,3 +27,4 @@ All code and flow can deployed locally using docker-compose.
 - [ ] Files to deploy on K8s
 - [ ] Implement a generic sink for TwitterConsumer
 - [ ] Makefile with build and deploy services
+- [ ] Use spark operator over spark cluster defined in docker-compose
