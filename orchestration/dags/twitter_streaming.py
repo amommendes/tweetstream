@@ -6,15 +6,16 @@ from tweetstream.consumers.twitter_streaming import TwitterStreamingConsumer
 from tweetstream.clients.spark import SparkClient
 
 default_args = {
-    'owner': 'tweeetstream',
-    'depends_on_past': False,
-    'start_date': days_ago(1),
-    'email': ['tweetstream@team.com'],
-    'email_on_failure': False,
-    'email_on_retry': False,
-    'retries': 1,
-    'retry_delay': timedelta(minutes=5)
+    "owner": "tweeetstream",
+    "depends_on_past": False,
+    "start_date": days_ago(1),
+    "email": ["tweetstream@team.com"],
+    "email_on_failure": False,
+    "email_on_retry": False,
+    "retries": 1,
+    "retry_delay": timedelta(minutes=5),
 }
+
 
 def main():
     spark_client = SparkClient(
@@ -34,11 +35,12 @@ def main():
     )
     consumer.start()
 
+
 dag = DAG(
     dag_id="twitter_streaming",
     default_args=default_args,
     description="Tweets Streaming Consumer",
-    schedule_interval=timedelta(days=1)
+    schedule_interval=timedelta(days=1),
 )
 
 start_job_task = PythonOperator(
@@ -47,6 +49,3 @@ start_job_task = PythonOperator(
     python_callable=main,
     execution_timeout=None,
 )
-
-
-

@@ -1,4 +1,3 @@
-import json
 from tweetstream.utils.logger import Logger
 from kafka import KafkaProducer
 
@@ -18,7 +17,6 @@ class KafkaSink:
         logger.info("Configuring Kafka sink")
         producer = KafkaProducer(
             bootstrap_servers=self.bootstrap_servers,
-            api_version=(0, 10, 0),
-            value_serializer=lambda message: json.dumps(message).encode("utf-8"),
+            api_version=(0, 10, 0)
         )
         return producer

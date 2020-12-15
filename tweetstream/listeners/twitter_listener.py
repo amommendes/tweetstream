@@ -18,8 +18,12 @@ class TwitterStreamListener(StreamListener):
     def on_data(self, raw_data):
         try:
             raw_data = json.loads(raw_data)
+            has_extended_tweet = "extended_tweet" in raw_data
+            tweet = raw_data.get("text", {})
+            if has_extended_tweet:
+                tweet = raw_data.get("extended_tweet").get("full_text")
             logger.info(f"Twitter Listener sending data to sink")
-            self.sink.send("twitter", raw_data)
+            self.sink.send("twitter", json.dumps(tweet).encode("utf-8"))
             return True
 
         except BaseException as error:

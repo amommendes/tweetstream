@@ -1,4 +1,5 @@
 from tweetstream.utils.logger import Logger
+from pyspark.sql.functions import col, explode, split, current_timestamp
 
 logger = Logger()
 logger.basicConfig()
@@ -6,7 +7,7 @@ logger.basicConfig()
 
 class TwitterStreamingConsumer:
     """
-    Consume data from Kafka using Spark Streaming Structured
+    Consume data from Kafka using Spark Structured Streaming
     """
 
     def __init__(
@@ -39,16 +40,21 @@ class TwitterStreamingConsumer:
             .load()
         )
 
-        logger.info("Converting binary fields to string")
-        tweets_df_cast = tweets_df.selectExpr(
-            "CAST(value AS STRING) as value",
-            "CAST(key AS STRING) as key",
-            "`timestamp`",
+        logger.info("Converting binary value to string")
+        tweets_df_cast = tweets_df.selectExpr("CAST(value AS STRING) as value")
+        logger.info("Grouping data")
+        tweets_df_grouped = (
+            tweets_df_cast.withColumn("token", explode(split(col("value"), " ")))
+            .filter(col("token").contains("#"))
+            .withColumn("arriving", current_timestamp())
+            .withWatermark("arriving", "1 minutes")
+            .groupBy("token", "arriving")
+            .count()
         )
-        logger.info("Writing stream")
 
+        logger.info("Writing stream")
         writer = (
-            tweets_df_cast.writeStream.format(self.format)
+            tweets_df_grouped.writeStream.format(self.format)
             .option("path", self.output_path)
             .option("checkpointLocation", self.checkpoint)
             .trigger(once=True)
