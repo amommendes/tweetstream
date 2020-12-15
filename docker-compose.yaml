@@ -1,6 +1,7 @@
 version: "3"
 
 services:
+
   spark-master:
     image: bde2020/spark-master:3.0.1-hadoop3.2
     container_name: spark-master
@@ -43,7 +44,7 @@ services:
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
       - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
       - ALLOW_PLAINTEXT_LISTENER=yes
-      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
       - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
     depends_on:
       - zookeeper
@@ -62,6 +63,7 @@ services:
   webserver:
       image: airflow-tweetstream
       restart: always
+      user: root
       depends_on:
           - postgres
       environment:
@@ -72,10 +74,11 @@ services:
               max-size: 10m
               max-file: "3"
       volumes:
-          - ./airflow/dags:/usr/local/airflow/dags
-          - ./tweetstream:/usr/local/airflow/tweetstream
+          - ${PWD}/orchestration/dags:/usr/local/airflow/dags
+          - ./tweetstream:/usr/local/airflow/dags/tweetstream
+          - ${PWD}/libs:/usr/local/airflow/dags/tweetstream/libs
       ports:
-          - "8080:8080"
+          - "5050:8080"
       command: webserver
       healthcheck:
           test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]

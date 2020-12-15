@@ -33,4 +33,7 @@ RUN mkdir -p /usr/spark/work/ \
 
 ENV SPARK_MASTER_PORT 7077
 
+COPY requirements_airflow.txt requirements.txt
+RUN python -m pip install --upgrade pip
+RUN pip install -r requirements.txt
 USER airflow

@@ -16,7 +16,7 @@ class TwitterStreamingConsumer:
         output_path="file:///tmp/consumer",
         checkpoint="/tmp/checkpoint",
         format="parquet",
-        bootstrap_servers="localhost:9092",
+        bootstrap_servers="kafka:9092",
     ):
         self.spark = spark
         self.output_path = output_path
