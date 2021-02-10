@@ -1,5 +1,5 @@
-from tweepy.streaming import StreamListener
 import json
+from tweepy.streaming import StreamListener
 from tweetstream.utils.logger import Logger
 
 logger = Logger()
